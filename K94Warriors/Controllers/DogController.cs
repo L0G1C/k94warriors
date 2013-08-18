@@ -52,11 +52,9 @@ namespace K94Warriors.Controllers
         public ActionResult GetNote(int id)
         {
             var repo = RepoResolver.GetRepository<DogNote>();
-            var note = repo.GetById(id);
+            var note = repo.GetById(id);            
 
-            ViewBag.Note = note.Note;
-
-            return PartialView();
+            return PartialView(note);
 
         }
 
