@@ -51,12 +51,13 @@ namespace K94Warriors.Controllers
 
         public ActionResult GetNote(int id)
         {
-            throw new NotImplementedException();
-        }
+            var repo = RepoResolver.GetRepository<DogNote>();
+            var note = repo.GetById(id);
 
-        public ActionResult GetNotes(int dogId)
-        {
-            throw new NotImplementedException();
+            ViewBag.Note = note.Note;
+
+            return PartialView();
+
         }
 
         public ActionResult GetNotes(int dogId, int noteTypeId)
